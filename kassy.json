@@ -1,0 +1,6 @@
+{
+	"name": "config",
+	"version": 3.0,
+	"startup": "config.js",
+	"type": "system"
+}
