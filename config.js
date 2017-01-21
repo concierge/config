@@ -24,7 +24,7 @@ class ConfigurationService {
 
     _pathFromDescriptor(descriptor) {
         if (descriptor === global.currentPlatform.config.getGlobalIndicator()) {
-            return global.rootPathJoin(configFileName);
+            return global.__runAsLocal ? global.rootPathJoin(configFileName) : path.join(global.__modulesPath, configFileName);
         }
         else {
             return path.join(descriptor.folderPath, configFileName);
