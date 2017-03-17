@@ -27,6 +27,9 @@ class ConfigurationService {
             return global.__runAsLocal ? global.rootPathJoin(configFileName) : path.join(global.__modulesPath, configFileName);
         }
         else {
+            if (!descriptor.folderPath) {
+                descriptor.folderPath = path.join(global.__modulesPath, descriptor.name);
+            }
             return path.join(descriptor.folderPath, configFileName);
         }
     }
