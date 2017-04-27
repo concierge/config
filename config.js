@@ -37,7 +37,7 @@ class ConfigurationService {
     loadConfig(descriptor) {
         const configPath = this._pathFromDescriptor(descriptor);
         try {
-            const temp = fs.readFileSync(configPath, 'utf8');
+            const temp = fs.readFileSync(configPath, 'utf8').replace(/^\uFEFF/, '');
             return JSON.parse(temp);
         }
         catch (e) {
